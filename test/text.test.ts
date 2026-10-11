@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { topWords, uniqueBy, words } from '../src/text.ts'
+import { chunk, topWords, uniqueBy, words } from '../src/text.ts'
 
 describe('words', () => {
   test('lowercases and keeps apostrophes, digits and any script', () => {
@@ -52,5 +52,15 @@ describe('uniqueBy', () => {
       { id: 3, name: 'Cy' },
     ]
     expect(uniqueBy(people, (p) => p.id).map((p) => p.name)).toEqual(['Ana', 'Ben', 'Cy'])
+  })
+})
+
+describe('chunk', () => {
+  test('splits into chunks of the given size', () => {
+    expect(chunk([1, 2, 3, 4, 5, 6], 2)).toEqual([
+      [1, 2],
+      [3, 4],
+      [5, 6],
+    ])
   })
 })

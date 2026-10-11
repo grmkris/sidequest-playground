@@ -15,5 +15,6 @@ bun run bench   # timings for topWords and uniqueBy on fixed inputs
 - `words(text)`: lowercase words in any script.
 - `topWords(text, n)`: the `n` most frequent words; ties keep first-seen order.
 - `uniqueBy(items, key)`: the first item for each key, in order.
+- `chunk(items, size)`: consecutive chunks of `size` items.
 
 The implementations are plain on purpose: there is room to make them faster without changing what they return.

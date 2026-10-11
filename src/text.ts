@@ -21,3 +21,10 @@ export function topWords(text: string, n: number): Array<[string, number]> {
 export function uniqueBy<T, K>(items: readonly T[], key: (item: T) => K): T[] {
   return items.filter((item, i) => items.findIndex((other) => key(other) === key(item)) === i)
 }
+
+/** Splits `items` into consecutive chunks of `size` items. */
+export function chunk<T>(items: readonly T[], size: number): T[][] {
+  const chunks: T[][] = []
+  for (let i = 0; i + size <= items.length; i += size) chunks.push(items.slice(i, i + size))
+  return chunks
+}

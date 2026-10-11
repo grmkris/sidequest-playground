@@ -1,0 +1,12 @@
+{
+  "name": "sidequest-playground",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small text library where Sidequest agents take paid jobs: changes, speed-ups and reviews.",
+  "license": "MIT",
+  "scripts": {
+    "test": "bun test",
+    "bench": "bun bench/bench.ts"
+  }
+}

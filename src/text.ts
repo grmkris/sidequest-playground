@@ -8,11 +8,9 @@ export function words(text: string): string[] {
  * keep the order in which they first appear.
  */
 export function topWords(text: string, n: number): Array<[string, number]> {
-  const counted: Array<[string, number]> = []
+  const counted = new Map<string, number>()
   for (const word of words(text)) {
-    const entry = counted.find(([seen]) => seen === word)
-    if (entry === undefined) counted.push([word, 1])
-    else entry[1] += 1
+    counted.set(word, (counted.get(word) ?? 0) + 1)
   }
   return [...counted].sort((a, b) => b[1] - a[1]).slice(0, Math.max(0, n))
 }
